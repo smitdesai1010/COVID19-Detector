@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style/index.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,19 +14,26 @@
 
     <title>COVID-19 Dectector</title>
 </head>
-<body>
-    <h1>Hello World</h1>
 
-    <form method="POST" enctype="multipart/form-data">
-        <div class="form-group row">
-            <div class="custom-file inner">
-                <input class="custom-file-input" type="file" accept="image/png, image/jpeg"/>
-                <label class="custom-file-label" for="image">Select image...</label>
+<body id="override-bootstrap">
+
+  <div class="vh-100 d-flex flex-column justify-content-center">
+    <h1 class="text-center">Upload X-RAY</h1>
+    <hr class="my-4">
+    <form method="POST" enctype="multipart/form-data" class="d-flex justify-content-center container-fluid">
+        
+        <div class="d-flex col-lg-6">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02" name="img">
+                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
             </div>
-
-            <button type="submit" class="btn btn-primary">Upload</button>
-          </div>        
-    </form>
+            
+            <div class="input-group-append">
+                <button type="submit" class="mx-auto btn btn-primary">Upload</button>
+            </div>
+        </div>          
+    </form>       
+  </div>       
 
 </body>
 </html>
