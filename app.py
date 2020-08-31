@@ -11,11 +11,14 @@ app = Flask(__name__)
 def get_image():
 
   if request.method == "POST":
-      if request.files:
+      if not request.files["img"].filename == '':
           image = request.files["img"].read()  
-          print(predict(model,image))   
+          result = predict(model,image)   
 
-          return redirect(request.url)
+          return render_template('index.html',data = result)
+      else:
+          return render_template('index.html',data = 'NO FILE SELECTED')
+
 
   return render_template('index.html')
   
